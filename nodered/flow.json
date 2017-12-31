@@ -1,0 +1,541 @@
+[
+    {
+        "id": "bbae1061.9e2158",
+        "type": "tab",
+        "label": "alexa home",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b43b85c8.d2bf6",
+        "type": "alexa-home",
+        "z": "bbae1061.9e2158",
+        "conf": "cdd552fb.eea998",
+        "device": "10767",
+        "acknoledge": true,
+        "name": "照明",
+        "topic": "",
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "2e9794ea.90be34",
+                "55b06a4a.8e5d0c",
+                "83e2ca1b.44e9"
+            ]
+        ]
+    },
+    {
+        "id": "4659dc32.f45c84",
+        "type": "exec",
+        "z": "bbae1061.9e2158",
+        "command": "/Users/machu/Documents/nodered/light.sh",
+        "addpay": false,
+        "append": "on",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "on",
+        "x": 450,
+        "y": 60,
+        "wires": [
+            [
+                "a4eb0aab.f378c8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c5ea9e7.8f3056",
+        "type": "exec",
+        "z": "bbae1061.9e2158",
+        "command": "/Users/machu/Documents/nodered/light.sh",
+        "addpay": false,
+        "append": "off",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "off",
+        "x": 450,
+        "y": 120,
+        "wires": [
+            [
+                "a4eb0aab.f378c8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a4eb0aab.f378c8",
+        "type": "debug",
+        "z": "bbae1061.9e2158",
+        "name": "stdout",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 670,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d86275f7.4d9978",
+        "type": "alexa-home",
+        "z": "bbae1061.9e2158",
+        "conf": "cdd552fb.eea998",
+        "device": "10774",
+        "acknoledge": true,
+        "name": "テレビ",
+        "topic": "",
+        "x": 70,
+        "y": 380,
+        "wires": [
+            [
+                "bfd8856c.d01028",
+                "38d423e1.989f84",
+                "1e9225f5.1668f2"
+            ]
+        ]
+    },
+    {
+        "id": "709eec90.4f6eec",
+        "type": "exec",
+        "z": "bbae1061.9e2158",
+        "command": "/Users/machu/Documents/nodered/bravia.sh",
+        "addpay": false,
+        "append": "TvPower",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "TvPower",
+        "x": 460,
+        "y": 500,
+        "wires": [
+            [
+                "15620f3c.5b9e29"
+            ],
+            [
+                "15620f3c.5b9e29"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f5b8a569.f56338",
+        "type": "exec",
+        "z": "bbae1061.9e2158",
+        "command": "/Users/machu/Documents/nodered/bravia.sh",
+        "addpay": false,
+        "append": "Sleep",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Sleep",
+        "x": 450,
+        "y": 560,
+        "wires": [
+            [
+                "15620f3c.5b9e29"
+            ],
+            [
+                "15620f3c.5b9e29"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "15620f3c.5b9e29",
+        "type": "debug",
+        "z": "bbae1061.9e2158",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 710,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "9bd68dd5.292968",
+        "type": "alexa-home",
+        "z": "bbae1061.9e2158",
+        "conf": "cdd552fb.eea998",
+        "device": "10777",
+        "acknoledge": true,
+        "name": "torne",
+        "topic": "",
+        "x": 90,
+        "y": 660,
+        "wires": [
+            [
+                "adc1403b.c32fb8"
+            ]
+        ]
+    },
+    {
+        "id": "adc1403b.c32fb8",
+        "type": "switch",
+        "z": "bbae1061.9e2158",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 250,
+        "y": 660,
+        "wires": [
+            [
+                "8e4572f3.afa4c8"
+            ],
+            [
+                "6cf3040f.79d6a4"
+            ]
+        ]
+    },
+    {
+        "id": "8e4572f3.afa4c8",
+        "type": "exec",
+        "z": "bbae1061.9e2158",
+        "command": "ps4-waker",
+        "addpay": false,
+        "append": "start CUSA00442",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 468,
+        "y": 631.5,
+        "wires": [
+            [
+                "8711cab2.c2de6"
+            ],
+            [
+                "8711cab2.c2de6"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6cf3040f.79d6a4",
+        "type": "exec",
+        "z": "bbae1061.9e2158",
+        "command": "ps4-waker",
+        "addpay": false,
+        "append": "standby",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 470,
+        "y": 696,
+        "wires": [
+            [
+                "8711cab2.c2de6"
+            ],
+            [
+                "8711cab2.c2de6"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8711cab2.c2de6",
+        "type": "debug",
+        "z": "bbae1061.9e2158",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "false",
+        "x": 653,
+        "y": 661,
+        "wires": []
+    },
+    {
+        "id": "2e9794ea.90be34",
+        "type": "debug",
+        "z": "bbae1061.9e2158",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 190,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "bfd8856c.d01028",
+        "type": "debug",
+        "z": "bbae1061.9e2158",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 190,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "38d423e1.989f84",
+        "type": "debug",
+        "z": "bbae1061.9e2158",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "command",
+        "x": 200,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "cd7d6243.e56a3",
+        "type": "exec",
+        "z": "bbae1061.9e2158",
+        "command": "/Users/machu/Documents/nodered/bravia.sh",
+        "addpay": false,
+        "append": "VolumeUp",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "VolumeUp",
+        "x": 470,
+        "y": 380,
+        "wires": [
+            [
+                "15620f3c.5b9e29"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8c7c3fb4.c826d8",
+        "type": "exec",
+        "z": "bbae1061.9e2158",
+        "command": "/Users/machu/Documents/nodered/bravia.sh",
+        "addpay": false,
+        "append": "VolumeDown",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "VolumeDown",
+        "x": 470,
+        "y": 440,
+        "wires": [
+            [
+                "15620f3c.5b9e29"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1e9225f5.1668f2",
+        "type": "switch",
+        "z": "bbae1061.9e2158",
+        "name": "",
+        "property": "command",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "SetPercentageRequest",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "IncrementPercentageRequest",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DecrementPercentageRequest",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "TurnOnRequest",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "TurnOffRequest",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 5,
+        "x": 230,
+        "y": 380,
+        "wires": [
+            [
+                "225efba2.262d6c"
+            ],
+            [
+                "cd7d6243.e56a3"
+            ],
+            [
+                "8c7c3fb4.c826d8"
+            ],
+            [
+                "709eec90.4f6eec"
+            ],
+            [
+                "f5b8a569.f56338"
+            ]
+        ]
+    },
+    {
+        "id": "a5220cec.9d4228",
+        "type": "exec",
+        "z": "bbae1061.9e2158",
+        "command": "/Users/machu/Documents/nodered/bravia.sh",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "NumX",
+        "x": 650,
+        "y": 320,
+        "wires": [
+            [
+                "15620f3c.5b9e29"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "225efba2.262d6c",
+        "type": "function",
+        "z": "bbae1061.9e2158",
+        "name": "add Num",
+        "func": "msg.payload = `Num${msg.payload}`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 320,
+        "wires": [
+            [
+                "a5220cec.9d4228"
+            ]
+        ]
+    },
+    {
+        "id": "55b06a4a.8e5d0c",
+        "type": "debug",
+        "z": "bbae1061.9e2158",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "command",
+        "x": 200,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "83e2ca1b.44e9",
+        "type": "switch",
+        "z": "bbae1061.9e2158",
+        "name": "",
+        "property": "command",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "TurnOnRequest",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "TurnOffRequest",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "IncrementPercentageRequest",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DecrementPercentageRequest",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 4,
+        "x": 250,
+        "y": 120,
+        "wires": [
+            [
+                "4659dc32.f45c84"
+            ],
+            [
+                "c5ea9e7.8f3056"
+            ],
+            [
+                "3bdb13ae.4c9b94"
+            ],
+            [
+                "231b4eba.8007da"
+            ]
+        ]
+    },
+    {
+        "id": "3bdb13ae.4c9b94",
+        "type": "exec",
+        "z": "bbae1061.9e2158",
+        "command": "/Users/machu/Documents/nodered/light.sh",
+        "addpay": false,
+        "append": "bright",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "bright",
+        "x": 450,
+        "y": 180,
+        "wires": [
+            [
+                "a4eb0aab.f378c8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "231b4eba.8007da",
+        "type": "exec",
+        "z": "bbae1061.9e2158",
+        "command": "/Users/machu/Documents/nodered/light.sh",
+        "addpay": false,
+        "append": "dark",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "dark",
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "a4eb0aab.f378c8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cdd552fb.eea998",
+        "type": "alexa-home-conf",
+        "z": "",
+        "username": "machu"
+    }
+]
